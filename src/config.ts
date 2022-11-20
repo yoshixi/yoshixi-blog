@@ -4,7 +4,7 @@ export const SITE = {
   website: "https://astro-paper.pages.dev/",
   author: "Sat Naing",
   desc: "A minimal, responsive and SEO-friendly Astro blog theme.",
-  title: "AstroPaper",
+  title: "Yoshixi",
   ogImage: "default-og.png",
   lightAndDarkMode: true,
   postPerPage: 3,
@@ -20,32 +20,32 @@ export const LOGO_IMAGE = {
 export const SOCIALS: SocialsObject = [
   {
     name: "Github",
-    href: "https://github.com/satnaing/astro-paper",
+    href: "https://github.com/yoshixi",
     active: true,
   },
   {
     name: "Facebook",
-    href: "https://github.com/satnaing/astro-paper",
+    href: "https://www.facebook.com/yoshiki.masubuchii",
     active: true,
   },
   {
     name: "Instagram",
     href: "https://github.com/satnaing/astro-paper",
-    active: true,
+    active: false,
   },
   {
     name: "Linkedin",
-    href: "https://github.com/satnaing/astro-paper",
+    href: "https://www.linkedin.com/in/yoshixi/",
     active: true,
   },
   {
     name: "Mail",
-    href: "mailto:yourmail@gmail.com",
+    href: "mailto:yoshixi.dev@gmail.com",
     active: false,
   },
   {
     name: "Twitter",
-    href: "https://github.com/satnaing/astro-paper",
+    href: "https://twitter.com/yoshixi_dev",
     active: false,
   },
   {
