@@ -85,7 +85,7 @@ Now I'm going to show you an example of an unordered list to make sure that look
 
 And that's the end of this section.
 
-![](/public/2022-11-20-slackbot-featured1-1.png)
+![](/public/assets/images/contents/2022-11-20-slackbot-featured1-1.png)
 
 ![](https://res.cloudinary.com/yoshixi/v1668950802/yoshixi-blog/SlackBot-featured1_1_d53q0m.png)
 
@@ -173,13 +173,13 @@ I almost forgot to mention links, like [this link to the Tailwind CSS website](h
 
 We even included table styles, check it out:
 
-| Wrestler | Origin | Finisher |
-| --- | --- | --- |
-| Bret "The Hitman" Hart | Calgary, AB | Sharpshooter |
-| Stone Cold Steve Austin | Austin, TX | Stone Cold Stunner |
-| Randy Savage | Sarasota, FL | Elbow Drop |
-| Vader | Boulder, CO | Vader Bomb |
-| Razor Ramon | Chuluota, FL | Razor's Edge |
+| Wrestler                | Origin       | Finisher           |
+| ----------------------- | ------------ | ------------------ |
+| Bret "The Hitman" Hart  | Calgary, AB  | Sharpshooter       |
+| Stone Cold Steve Austin | Austin, TX   | Stone Cold Stunner |
+| Randy Savage            | Sarasota, FL | Elbow Drop         |
+| Vader                   | Boulder, CO  | Vader Bomb         |
+| Razor Ramon             | Chuluota, FL | Razor's Edge       |
 
 We also need to make sure inline code looks good, like if I wanted to talk about `<span>` elements or tell you the good news about `@tailwindcss/typography`.
 
