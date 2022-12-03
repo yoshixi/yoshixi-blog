@@ -23,3 +23,16 @@ fields:
 - type: text
   name: description
   label: description
+- name: language
+  type: select
+  default: []
+  config:
+    required: false
+    options: []
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: Language
+  description: Language
