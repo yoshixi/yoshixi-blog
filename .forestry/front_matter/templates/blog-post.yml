@@ -36,3 +36,5 @@ fields:
       path: 
   label: Language
   description: Language
+pages:
+- src/contents/蛙-大海を知り-泳ぎ続ける.md
