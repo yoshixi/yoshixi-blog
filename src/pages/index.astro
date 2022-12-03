@@ -19,7 +19,7 @@ const sortedPosts = getSortedPosts(posts);
   <Header />
   <main id="main-content">
     <section id="hero">
-      <h1>Mingalaba</h1>
+      <h1>YOSHIKI MASUBUCHI</h1>
       <a
         target="_blank"
         href="/rss.xml"
@@ -76,6 +76,13 @@ const sortedPosts = getSortedPosts(posts);
 
     <section id="recent-posts">
       <h2>Recent Posts</h2>
+      <div class="languages">
+        <LinkButton
+          href={"/?lang=en"}
+          className="link-button"
+          title={"english"}
+        />
+      </div>
       <ul>
         {
           sortedPosts.map(
@@ -141,5 +148,12 @@ const sortedPosts = getSortedPosts(posts);
   }
   .all-posts-btn-wrapper {
     @apply text-center my-8;
+  }
+
+  .languages {
+    @apply flex-wrap justify-center gap-1;
+  }
+  .link-button {
+    @apply p-2 sm:p-1 hover:rotate-6;
   }
 </style>

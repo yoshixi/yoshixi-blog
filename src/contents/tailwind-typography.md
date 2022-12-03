@@ -85,7 +85,7 @@ Now I'm going to show you an example of an unordered list to make sure that look
 
 And that's the end of this section.
 
-![](/public/assets/images/contents/2022-11-20-slackbot-featured1-1.png)
+![](/public/assets/images/contentsi/2022-11-20-slackbot-featured1-1.png)
 
 ![](https://res.cloudinary.com/yoshixi/v1668950802/yoshixi-blog/SlackBot-featured1_1_d53q0m.png)
 
