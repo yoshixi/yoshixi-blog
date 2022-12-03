@@ -47,4 +47,3 @@ fields:
   description: Language
 pages:
 - src/contents/ja/蛙-大海を知り-お泳ぎつづける.md
-- src/contents/ruby-go-typescript.md
