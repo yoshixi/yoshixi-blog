@@ -46,4 +46,5 @@ fields:
   label: Language
   description: Language
 pages:
+- src/contents/ja/ruby-go-typescript.md
 - src/contents/ja/蛙-大海を知り-お泳ぎつづける.md
