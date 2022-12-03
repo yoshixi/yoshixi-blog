@@ -28,7 +28,8 @@ fields:
   default: []
   config:
     required: false
-    options: []
+    options:
+    - ja
     source:
       type: simple
       section: 
