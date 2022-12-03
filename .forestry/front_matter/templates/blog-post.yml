@@ -30,6 +30,7 @@ fields:
     required: false
     options:
     - ja
+    - en
     source:
       type: simple
       section: 
