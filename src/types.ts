@@ -8,6 +8,7 @@ export interface Frontmatter {
   featured: boolean;
   draft: boolean;
   tags: string[];
+  language: string;
 }
 
 export type SocialsObject = {
