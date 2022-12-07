@@ -1,5 +1,6 @@
 import Datetime from "./Datetime";
 import type { Frontmatter } from "src/types";
+import React from "react";
 
 export interface Props {
   href?: string;

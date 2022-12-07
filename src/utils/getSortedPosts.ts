@@ -1,7 +1,9 @@
 import type { MarkdownInstance } from "astro";
 import type { Frontmatter } from "../types";
 
-const getSortedPosts = (posts: MarkdownInstance<Frontmatter>[]) =>
+const getSortedPosts = (
+  posts: MarkdownInstance<Frontmatter>[]
+): MarkdownInstance<Frontmatter>[] =>
   posts
     .filter(({ frontmatter }) => !frontmatter.draft)
     .sort(

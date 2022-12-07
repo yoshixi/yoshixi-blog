@@ -7,7 +7,7 @@ export const SITE = {
   title: "Yoshixi",
   ogImage: "default-og.png",
   lightAndDarkMode: true,
-  postPerPage: 3,
+  postPerPage: 20,
 };
 
 export const LOGO_IMAGE = {
