@@ -14,17 +14,19 @@ export interface Props {
   pageNum: number;
   totalPages: number;
   posts: MarkdownInstance<Frontmatter>[];
+  subTitle?: string;
 }
 
-const { pageNum, totalPages, posts } = Astro.props;
+const { pageNum, totalPages, posts, subTitle } = Astro.props;
 
+const pageTitle = subTitle ? `Posts (${subTitle})` : "Posts";
 const prev = pageNum > 1 ? "" : "disabled";
 const next = pageNum < totalPages ? "" : "disabled";
 ---
 
 <Layout title={`Posts | ${SITE.title}`}>
   <Header activeNav="posts" />
-  <Main pageTitle="Posts" pageDesc="All the articles I've posted.">
+  <Main pageTitle={pageTitle} pageDesc="All the articles I've posted.">
     <ul>
       {
         posts.map(({ frontmatter }) => {

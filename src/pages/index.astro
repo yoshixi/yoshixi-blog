@@ -55,9 +55,7 @@ const postsByLang =
       </div>
     </section>
 
-    <Hr />
-
-    <section id="featured">
+    <!-- <section id="featured">
       <h2>Featured</h2>
       <ul>
         {
@@ -73,17 +71,18 @@ const postsByLang =
           )
         }
       </ul>
-    </section>
+    </section> -->
 
     <Hr />
 
     <section id="recent-posts">
-      <h2>Recent Posts</h2>
+      <h2>Posts</h2>
       <div class="languages">
-        <LinkButton href={"/?lang=en"} className="link-button" title={"english"}
+        <LinkButton href={"/posts/en"} className="link-button" title={"english"}
           >English</LinkButton
         >
-        <LinkButton href={"/?lang=ja"} className="link-button" title={"english"}
+        <span>|</span>
+        <LinkButton href={"/posts/ja"} className="link-button" title={"english"}
           >Japanese</LinkButton
         >
         <ul>
@@ -147,7 +146,7 @@ const postsByLang =
     }
     #featured h2,
     #recent-posts h2 {
-      @apply font-semibold text-2xl tracking-wide;
+      @apply font-semibold text-2xl tracking-wide mb-2;
     }
     .all-posts-btn-wrapper {
       @apply text-center my-8;
@@ -157,7 +156,7 @@ const postsByLang =
       @apply flex-wrap justify-center gap-1;
     }
     .link-button {
-      @apply p-2 sm:p-1 hover:rotate-6;
+      @apply p-2 sm:p-1 hover:rotate-6 font-bold;
     }
 
     .mention {
