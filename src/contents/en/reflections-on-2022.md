@@ -31,7 +31,7 @@ Why I joined MODE? I was attracted for the following reasons especially.
 
 Having joined and been working for five months, the work and environment are as expected. I'm enjoying the MODE life.
 
-For the next year, I will gain deep knowledge of the company's software itself and low-level programming like a Linux system. My first company used Docker, and I had fewer experiences with touching the Linux system directly. In terms of IoT solutions, it needs to consider an edge-side computer and need to consider Linux system. These are good opportunities for me to learn Linux systems. Making IoT software solutions, unlike making basic web applications, has many consideration points, and it sometimes gives me a hard time but also gives me a lot of knowledge about systems. I hope to enjoy learning again next year.
+For the next year, I will gain deep knowledge of the company's software itself and low-level programming like a Linux system. My first company used Docker, and I had fewer experiences with touching the Linux system directly. In terms of IoT solutions, it needs to consider an edge-side computer and need to consider Linux system. These are good opportunities for me to learn Linux systems. Making IoT software solutions, unlike making basic web applications, has many consideration points, and it sometimes gives me a hard time but also gives me a lot of knowledge about systems. I hope to keep and enjoy learning again next year.
 
 ## Private
 
