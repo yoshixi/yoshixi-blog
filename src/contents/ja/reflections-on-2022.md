@@ -1,15 +1,15 @@
 ---
 language: ja
-title: 2022の振り返り
-author: ""
+title: Reflections on 2022 ja
+author: ''
 datetime: 2022-12-30T15:00:00Z
 featured: false
 draft: false
 tags:
-  - life
-description: ""
----
+- life
+description: ''
 
+---
 こちらの記事は、[英語で書いたもの](/posts/reflections-on-2022/)をほぼ自動翻訳で翻訳したものになります．
 
 毎年、年末にブログを書いています。今年も、2022 年末のブログを書こうと思います。今年から新しい会社で働き始めました。この会社の公用語は英語で。そんな会社で働いたことがなく、英語も苦手だったので、とりあえず英語力を上げる努力をしています。そのため、このブログも英語で書き始めることにしました。
