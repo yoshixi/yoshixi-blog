@@ -50,4 +50,4 @@ Thank you to everyone who helped, talked to, and involved me. See you again next
 ### PS
 
 Thank you for reading this article to the end.
-The original data of this article is [here](https://github.com/yoshixi/yoshixi-blog/blob/main/src/contents/en/the-state-of-2022.md). If you feel that my English expression is not correct, you can make pull requests and this helps me to improve my English skill.(Of course, it would also be helpful if you tell me it using DMs, etc.)
+The original data of this article is [here](https://github.com/yoshixi/yoshixi-blog/blob/main/src/contents/en/the-state-of-2022.md). If you feel that my English expression is not correct, you can make pull requests, and this helps me to improve my English skill.(Of course, it would also be helpful if you tell it to me using DMs, etc.)
