@@ -19,4 +19,4 @@ As I mentioned earlier, I changed my job in August. A new company called MODE ma
 I was attracted for the following reasons especially.
 
 * I wanted to make an application other than a basic web application. To do that, I wanted to join a developer org using a programming language other than Ruby.
-* I wanted to join a national company like uses English. I thought that such an environment makes me excited from perspectives other than software development.
+* I wanted to join a national company like uses English. I thought that such an environment would make me excited from perspectives other than software development.
