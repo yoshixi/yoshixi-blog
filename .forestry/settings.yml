@@ -11,7 +11,7 @@ sections:
   match: "**/*"
   new_doc_ext: md
 upload_dir: public/assets/images/contents
-public_path: "/public/assets/images/contents"
+public_path: "/assets/images/contents"
 front_matter_path: ''
 use_front_matter_path: 
 file_template: ":year:-:month:-:day:-:filename:"
