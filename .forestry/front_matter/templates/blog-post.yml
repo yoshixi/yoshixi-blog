@@ -46,6 +46,7 @@ fields:
   label: Language
   description: Language
 pages:
+- src/contents/ja/2019.md
 - src/contents/ja/2020-2021.md
 - src/contents/ja/2021-to-2022.md
 - src/contents/ja/compute-engine-disk.md
