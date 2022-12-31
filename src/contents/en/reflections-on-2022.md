@@ -10,7 +10,7 @@ tags:
 description: ""
 ---
 
-I write a blog at the end of every year. This year, I will also write the blog for the end of 2022. This year, I started working for a new company, and this company's official language is English. I had never worked for such a company and wasn't good at English, so I have been making an effort to improve my English skills for now. I will start writing this blog in English for this reason.
+I write a blog at the end of every year. This year, I will also write the blog for the end of 2022. This year, I started working for a new company, and this company's official language is English. I had never worked for such a company and wasn't good at English, so I have been making an effort to improve my English skills for now. That's one reason, I will start writing this blog in English for this reason.
 
 ## Summary
 
@@ -46,3 +46,8 @@ Especially I could get to run on the riverside, that feels refreshing. When I wa
 2022 was the year of trying new things, and I figured out I still have much staff to learn. I got a little bit bored with the life of software development in 2021, but there are many issues and staff to learn to solve these issues in my current environment, which makes me excited. I would like to keep enjoying and learning for next year.
 
 Thank you to everyone who helped, talked to, and involved me. See you again next year!
+
+### PS
+
+Thank you for reading this article to the end.
+The original data of this article is [here](https://github.com/yoshixi/yoshixi-blog/blob/main/src/contents/en/the-state-of-2022.md). If you feel that my English expression is not correct, you can make pull requests and this helps me to improve my English skill.(Of course, it would also be helpful if you tell me it using DMs, etc.)
