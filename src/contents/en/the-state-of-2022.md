@@ -1,6 +1,6 @@
 ---
 language: en
-title: The state of 2022
+title: Reflections on 2022
 author: ''
 datetime: 2022-12-30T15:00:00Z
 featured: false
@@ -42,3 +42,7 @@ Especially I could get to run on the riverside, that feels refreshing. When I wa
 ![](/public/assets/images/contents/2022-12-31-img_0980.PNG)
 
 ## For 2023
+
+2022 was the year of trying new things, and I figured out I still have much staff to learn. I got a little bit bored with the life of software development in 2021, but there are many issues and staff to learn to solve these issues in my current environment, which makes me excited. I would like to keep enjoying and learning for next year.
+
+Thank you to everyone who helped, talked to, and involved me. See you again next year!
