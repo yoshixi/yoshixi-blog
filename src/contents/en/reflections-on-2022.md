@@ -10,7 +10,7 @@ tags:
 description: ''
 
 ---
-I write a blog at the end of every year. This year, I will also write the blog for the end of 2022. This year, I started working for a new company, and this company's official language is English. I had never worked for such a company and wasn't good at English, so I have been making an effort to improve my English skills for now. That's one reason, I will start writing this blog in English for this reason.
+I write a blog at the end of every year. This year, I will also write the blog for the end of 2022. This year, I started working for a new company, and this company's official language is English. I had never worked for such a company and wasn't good at English, so I have been making an effort to improve my English skills for now. That's one reason I will start writing this blog in English for this reason.
 
 ## Summary
 
