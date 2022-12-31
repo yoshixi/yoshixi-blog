@@ -37,7 +37,7 @@ For the next year, I will gain deep knowledge of the company's software itself a
 
 I moved to Kanagawa from Tokyo, Shinagawa, and lived together with my partner. I lived other than Tokyo for the first time since I moved to Tokyo when I entered uni. Having grown up in a country, it feels fit, and I have a great time.
 
-Especially I could get to run on the riverside, that feels refreshing. When I was in Shinagawa, Shinagawa had a lot of buildings and traffic lights which were not positive for running. I ran for 772 km this year, and I would like to aim for 1000 km next year.
+Especially I could get to run on the riverside, that feels refreshing. When I was in Shinagawa, Shinagawa had a lot of buildings and traffic lights which were not positive for running. Due to such environmental changes, I ran 772 km this year, and I would like to aim for 1000 km next year.
 
 ![](/assets/images/contents/2022-12-31-img_0980.PNG)
 
