@@ -1,19 +1,19 @@
 ---
 language: ja
 title: Go x GraphQL でプロジェクト作成する際に考えたこと
-author: ''
+author: ""
 datetime: 2021-07-31T15:00:00Z
 featured: false
 draft: false
 tags:
-- tech
-description: ''
-
+  - tech
+description: ""
 ---
+
 ## アーキテクチャについて
 
-* clean archtecture like な設計を採用しまいた。。以下レポジトリを参考。 [bxcodec/go-clean-arch](https://github.com/bxcodec/go-clean-arch)
-* 採用理由: 新規のプロダクトだったため、プロダクトの仕様が大きく変更されることが予想されました。そのため、こだわったというよりは、各Layerが多すぎず少なすぎないアーキテクチャがよいかなと思い、この設計にしました。
+- clean archtecture like な設計を採用しまいた。。以下レポジトリを参考。 [bxcodec/go-clean-arch](https://github.com/bxcodec/go-clean-arch)
+- 採用理由: 新規のプロダクトだったため、プロダクトの仕様が大きく変更されることが予想されました。そのため、こだわったというよりは、各Layerが多すぎず少なすぎないアーキテクチャがよいかなと思い、この設計にしました。
 
 全体的な依存関係は以下です。
 
@@ -28,24 +28,22 @@ description: ''
     repository interface
     ↑
     repository implement(ORMはsqlboiler で自動生成)
-    
-    
 
 ## 命名規則
 
-* どのレイヤーでも以下のようなPrefixを推奨。作成意図としては、命名で迷う時間を減らすため。
-* 配列を返すAPI
-  * 一覧: List
-  * 絞り込み ListByXXXX
-* 単一レコード返すAPI
-  * Get
-  * GetByXXX
-* レコードを作成する
-  * 単一レコードの作成: Create
-  * 他のレコードも同時に作成: CreateWithXXX
-* レコードを更新する
-  * 単一レコードの更新: Update
-  * 他のレコードも同時に更新: UpdateWithXXX
+- どのレイヤーでも以下のようなPrefixを推奨。作成意図としては、命名で迷う時間を減らすため。
+- 配列を返すAPI
+  - 一覧: List
+  - 絞り込み ListByXXXX
+- 単一レコード返すAPI
+  - Get
+  - GetByXXX
+- レコードを作成する
+  - 単一レコードの作成: Create
+  - 他のレコードも同時に作成: CreateWithXXX
+- レコードを更新する
+  - 単一レコードの更新: Update
+  - 他のレコードも同時に更新: UpdateWithXXX
 
 ### 関数に pointer を渡すかどうかについて
 
@@ -58,14 +56,13 @@ description: ''
     - 呼び出し元の値を変える必要があるなら、ポインタ
     - 引数（レシーバ）が大きければ、ポインタ
     - 引数（レシーバ）が小さければ、値
-    
 
 大きさについては、ぱっと検証することは不可能だと考え、渡した値に変更を加える場合はポインターを使い、変更を加えない場合は値渡しを使う方針
 
 ### DB 制約のチェックリスト
 
-* 中間テーブルの uniq 制約
-* 外部キー制約 FOREIGN KEY, REFERENCES
+- 中間テーブルの uniq 制約
+- 外部キー制約 FOREIGN KEY, REFERENCES
 
 ### データベースのモデリングについて
 
@@ -87,14 +84,14 @@ GraphqQL の リクエストレベルのテストと、repository層のテスト
 
 ### ログ設定について
 
-* uber-go/zapを使用している
-* 以下を参考に実施
-  * [https://future-architect.github.io/articles/20200205/](https://future-architect.github.io/articles/20200205/ "https://future-architect.github.io/articles/20200205/")
+- uber-go/zapを使用している
+- 以下を参考に実施
+  - [https://future-architect.github.io/articles/20200205/](https://future-architect.github.io/articles/20200205/ "https://future-architect.github.io/articles/20200205/")
 
 ### graphql の schema について
 
-* github の graphql を参考にする
-* 参考書籍 [https://github.com/vvakame/graphql-schema-guide](https://github.com/vvakame/graphql-schema-guide "https://github.com/vvakame/graphql-schema-guide")
+- github の graphql を参考にする
+- 参考書籍 [https://github.com/vvakame/graphql-schema-guide](https://github.com/vvakame/graphql-schema-guide "https://github.com/vvakame/graphql-schema-guide")
 
 ## 参考資料 / その他メモ
 

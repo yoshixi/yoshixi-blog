@@ -1,15 +1,15 @@
 ---
 language: ja
 title: Compute Engineの Diskを上げる
-author: ''
+author: ""
 datetime: 2022-01-29T15:00:00Z
 featured: false
 draft: false
 tags:
-- tech
-description: ''
-
+  - tech
+description: ""
 ---
+
 ## 背景 / Background
 
 [https://redash.io/help/open-source/setup](https://redash.io/help/open-source/setup "https://redash.io/help/open-source/setup") こちらにそって、re-dashをたち上げていいたら、dockerが立ち上がらなくなっていた。
@@ -29,7 +29,7 @@ When I checked it out, it threw up the following error and felt that the disk wa
          Docs: <https://docs.docker.com>
       Process: 2070 ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock (code=exited, status=1/FAILURE)
      Main PID: 2070 (code=exited, status=1/FAILURE)
-    
+
     Jan 30 14:21:34 re-dash systemd[1]: docker.service: Main process exited, code=exited, status=1/FAILURE
     Jan 30 14:21:34 re-dash systemd[1]: docker.service: Failed with result 'exit-code'.
     Jan 30 14:21:34 re-dash systemd[1]: Failed to start Docker Application Container Engine.
@@ -39,7 +39,7 @@ When I checked it out, it threw up the following error and felt that the disk wa
     Jan 30 14:21:36 re-dash systemd[1]: docker.service: Start request repeated too quickly.
     Jan 30 14:21:36 re-dash systemd[1]: docker.service: Failed with result 'exit-code'.
     Jan 30 14:21:36 re-dash systemd[1]: Failed to start Docker Application Container Engine.
-    
+
 
     root@re-dash:/opt/redash# journalctl -xe
     Journal file /var/log/journal/8e85609a0aa2b1c3a15d333477b1820e/system.journal is truncated, ignoring file.
@@ -61,12 +61,11 @@ When I checked it out, it threw up the following error and felt that the disk wa
     Jan 30 14:22:18 re-dash rsyslogd[896]: action 'action 3' (module 'builtin:omfile') message lost, could not be processed. Check for additional error messages before this one. [v8.32.0 try <http://www.rsyslog.com/e/2027> ]
     Jan 30 14:22:18 re-dash rsyslogd[896]: file '7' write error: No space left on device [v8.32.0 try <http://www.rsyslog.com/e/2027> ]
     Jan 30 14:22:18 re-dash rsyslogd[896]: action 'action 3' (module 'builtin:omfile') message lost, could not be processed. Check for additional error messages before this one. [v8.32.0 try <http://www.rsyslog.com/e/2027> ]
-    
 
 ## 解決方法 / Solution
 
-* 以下、2点 URLを確認する。
-* 後者の方の手順をやる
+- 以下、2点 URLを確認する。
+- 後者の方の手順をやる
 
 [Troubleshooting full disks and disk resizing | Compute Engine Documentation | Google Cloud](https://cloud.google.com/compute/docs/troubleshooting/troubleshooting-disk-full-resize)
 
