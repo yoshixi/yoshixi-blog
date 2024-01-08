@@ -4,7 +4,7 @@ title: 転職するときに考えたこと、ずらりと。
 author: ""
 datetime: 2023-05-14T07:00:00Z
 featured: false
-draft: false
+draft: true
 tags:
   - life
 description: ""
