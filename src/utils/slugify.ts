@@ -1,11 +1,7 @@
-import { slug as slugger } from "github-slugger";
-import type { Frontmatter } from "src/types";
+import kebabcase from "lodash.kebabcase";
 
-export const slugifyStr = (str: string) => slugger(str);
+export const slugifyStr = (str: string) => kebabcase(str);
 
-const slugify = (frontmatter: Frontmatter) =>
-  frontmatter.slug ? slugger(frontmatter.slug) : slugger(frontmatter.title);
+export const slugifyAll = (arr: string[]) => arr.map(str => slugifyStr(str));
 
-export const slufigyAll = (arr: string[]) => arr.map(str => slugifyStr(str));
-
-export default slugify;
+export const resolvedSlugPath = (slug: string) => slug.replace(/\//g, "-");
