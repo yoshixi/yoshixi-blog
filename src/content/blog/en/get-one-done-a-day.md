@@ -1,7 +1,7 @@
 ---
 language: en
 title: Get one thing done a day
-author: ""
+author: "Yoshiki"
 pubDatetime: 2023-06-10T15:00:00.000+00:00
 featured: false
 draft: false

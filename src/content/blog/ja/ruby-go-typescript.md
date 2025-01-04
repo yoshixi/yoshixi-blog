@@ -1,7 +1,7 @@
 ---
 language: ja
 title: Ruby と Go と Typescript
-author: ""
+author: "Yoshiki"
 pubDatetime: 2022-03-10T15:00:00Z
 featured: false
 draft: false

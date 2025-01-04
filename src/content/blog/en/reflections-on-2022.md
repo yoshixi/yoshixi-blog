@@ -1,7 +1,7 @@
 ---
 language: en
 title: Reflections on 2022
-author: ""
+author: "Yoshiki"
 pubDatetime: 2022-12-30T15:00:00.000+00:00
 featured: false
 draft: false

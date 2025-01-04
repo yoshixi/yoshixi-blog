@@ -1,7 +1,7 @@
 ---
 language: ja
 title: Go x GraphQL でプロジェクト作成する際に考えたこと
-author: ""
+author: "Yoshiki"
 pubDatetime: 2021-07-31T15:00:00Z
 featured: false
 draft: false

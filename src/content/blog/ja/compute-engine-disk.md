@@ -1,7 +1,7 @@
 ---
 language: ja
 title: Compute Engineの Diskを上げる
-author: ""
+author: "Yoshiki"
 pubDatetime: 2022-01-29T15:00:00Z
 featured: false
 draft: false

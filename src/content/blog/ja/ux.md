@@ -1,7 +1,7 @@
 ---
 language: ja
 title: 開発環境の進化がもたらすUX
-author: ""
+author: "Yoshiki"
 pubDatetime: 2022-02-28T15:00:00Z
 featured: false
 draft: false

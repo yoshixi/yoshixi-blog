@@ -1,7 +1,7 @@
 ---
 language: ja
 title: 転職するときに考えたこと、ずらりと。
-author: ""
+author: "Yoshiki"
 pubDatetime: 2023-05-14T07:00:00Z
 featured: false
 draft: true
