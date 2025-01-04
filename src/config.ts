@@ -8,12 +8,12 @@ export const SITE: Site = {
   title: "Yoshiki's Blog",
   ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
-  postPerIndex: 4,
+  postPerIndex: 10,
   postPerPage: 10,
   scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
   showArchives: true,
   editPost: {
-    url: "https://github.com/satnaing/astro-paper/edit/main/src/content/blog",
+    url: "https://github.com/yoshixi/yoshixi-blog/tree/main/src/content/blog",
     text: "Suggest Changes",
     appendFilePath: true,
   },
