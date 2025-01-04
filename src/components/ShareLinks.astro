@@ -1,6 +1,12 @@
 ---
 import LinkButton from "./LinkButton.astro";
 import socialIcons from "@assets/socialIcons";
+import type { CollectionEntry } from "astro:content";
+
+export interface Props {
+  post: CollectionEntry<"blog">;
+}
+const { post } = Astro.props;
 
 const URL = Astro.url;
 
@@ -17,7 +23,7 @@ const shareLinks = [
   },
   {
     name: "X",
-    href: "https://x.com/intent/post?url=",
+    href: `https://x.com/intent/post?text=${post.data.title}&url=`,
     linkTitle: `Share this post on X`,
   },
   {

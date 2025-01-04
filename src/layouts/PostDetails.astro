@@ -16,8 +16,6 @@ export interface Props {
 
 const { post, posts } = Astro.props;
 
-console.log("slug", post.slug);
-
 const {
   title,
   author,
@@ -111,7 +109,7 @@ const nextPost =
         <span>Back to Top</span>
       </button>
 
-      <ShareLinks />
+      <ShareLinks post={post}/>
     </div>
 
     <hr class="my-6 border-dashed" />
