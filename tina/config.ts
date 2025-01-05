@@ -77,6 +77,7 @@ export default defineConfig({
             name: "tags",
             label: "Tags",
             options: ["life", "work", "play"],
+            list: true,
           },           
         ],
       },
