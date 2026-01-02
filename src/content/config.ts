@@ -20,6 +20,7 @@ const blog = defineCollection({
         })
         .or(z.string())
         .optional(),
+      hideFromTimeline: z.boolean().optional(),
       description: z.string().optional(),
       canonicalURL: z.string().optional(),
       editPost: z
