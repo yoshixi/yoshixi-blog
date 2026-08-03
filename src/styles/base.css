@@ -1,18 +1,12 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
-
-@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+@import "./skin.css";
 
 @theme {
   --font-mono: "IBM Plex Mono", monospace;
-  --color-skin-base: rgb(var(--color-text-base) / <alpha-value>);
-  --color-skin-accent: rgb(var(--color-accent) / <alpha-value>);
-  --color-skin-inverted: rgb(var(--color-fill) / <alpha-value>);
-  --color-skin-fill: rgb(var(--color-fill) / <alpha-value>);
-  --color-skin-card: rgb(var(--color-card) / <alpha-value>);
-  --color-skin-card-muted: rgb(var(--color-card-muted) / <alpha-value>);
-  --color-skin-line: rgb(var(--color-border) / <alpha-value>);
 }
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 @layer base {
   :root,
@@ -41,26 +35,113 @@
     display: block;
   }
   body {
-    @apply bg-skin-fill text-skin-base selection:bg-skin-accent/70 selection:text-skin-inverted flex min-h-[100svh] flex-col font-mono;
+    @apply flex min-h-[100svh] flex-col font-mono;
+    background-color: rgba(var(--color-fill), 1);
+    color: rgba(var(--color-text-base), 1);
+  }
+  body ::selection,
+  body::selection {
+    background-color: rgba(var(--color-accent), 0.7);
+    color: rgba(var(--color-fill), 1);
   }
   section,
   footer {
     @apply mx-auto max-w-3xl px-4;
   }
   a {
-    @apply outline-skin-accent outline-2 outline-offset-1 focus-visible:no-underline focus-visible:outline-dashed;
+    outline-width: 2px;
+    outline-offset: 1px;
+    outline-color: rgba(var(--color-accent), 1);
+    outline-style: none;
+  }
+  a:focus-visible {
+    outline-style: dashed;
+    text-decoration-line: none;
   }
   svg {
-    @apply fill-skin-base group-hover:fill-skin-accent inline-block h-6 w-6;
+    @apply inline-block h-6 w-6;
+    fill: rgba(var(--color-text-base), 1);
+  }
+  svg:is(:where(.group):hover *) {
+    fill: rgba(var(--color-accent), 1);
   }
   svg.icon-tabler {
     @apply inline-block h-6 w-6 scale-125 fill-transparent stroke-current stroke-2 opacity-90 group-hover:fill-transparent sm:scale-110;
   }
   .prose {
-    @apply prose-headings:mb-3! prose-headings:text-skin-base! prose-h3:italic prose-p:text-skin-base! prose-a:text-skin-base! prose-a:decoration-dashed! prose-a:underline-offset-8 hover:prose-a:text-skin-accent prose-blockquote:border-l-skin-accent/50 prose-blockquote:opacity-80 prose-figcaption:text-skin-base! prose-figcaption:opacity-70 prose-strong:text-skin-base! prose-code:rounded prose-code:bg-skin-card/75 prose-code:p-1 prose-code:before:content-none! prose-code:after:content-none! prose-ol:text-skin-base! prose-ul:overflow-x-clip prose-ul:text-skin-base! prose-li:marker:text-skin-accent! prose-table:text-skin-base prose-th:border prose-th:border-skin-line prose-td:border prose-td:border-skin-line prose-img:my-2! prose-img:mx-auto prose-img:border-2 prose-img:border-skin-line prose-hr:border-skin-line!;
+    @apply prose-headings:mb-3! prose-h3:italic prose-a:decoration-dashed! prose-a:underline-offset-8 prose-blockquote:opacity-80 prose-code:rounded prose-code:p-1 prose-code:before:content-none! prose-code:after:content-none! prose-ul:overflow-x-clip prose-th:border prose-td:border prose-img:my-2! prose-img:mx-auto prose-img:border-2;
+  }
+  .prose
+    :where(h1, h2, h3, h4, h5, h6, th):not(
+      :where([class~="not-prose"], [class~="not-prose"] *)
+    ) {
+    margin-bottom: calc(var(--spacing) * 3) !important;
+    color: rgba(var(--color-text-base), 1) !important;
+  }
+  .prose :where(p):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    color: rgba(var(--color-text-base), 1) !important;
+  }
+  .prose :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    color: rgba(var(--color-text-base), 1) !important;
+    text-decoration-style: dashed !important;
+  }
+  @media (hover: hover) {
+    .prose
+      :where(a):not(
+        :where([class~="not-prose"], [class~="not-prose"] *)
+      ):hover {
+      color: rgba(var(--color-accent), 1);
+    }
+    .prose a:hover {
+      color: rgba(var(--color-accent), 1) !important;
+    }
+  }
+  .prose
+    :where(blockquote):not(
+      :where([class~="not-prose"], [class~="not-prose"] *)
+    ) {
+    border-left-color: rgba(var(--color-accent), 0.5);
+  }
+  .prose
+    :where(figcaption):not(
+      :where([class~="not-prose"], [class~="not-prose"] *)
+    ) {
+    color: rgba(var(--color-text-base), 1) !important;
+    opacity: 0.7;
+  }
+  .prose
+    :where(strong):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    color: rgba(var(--color-text-base), 1) !important;
+  }
+  .prose
+    :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    background-color: rgba(var(--color-card), 0.75);
+  }
+  .prose
+    :where(ol, ul):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    color: rgba(var(--color-text-base), 1) !important;
+  }
+  .prose
+    :where(li):not(:where([class~="not-prose"], [class~="not-prose"] *))
+    ::marker {
+    color: rgba(var(--color-accent), 1) !important;
+  }
+  .prose
+    :where(table):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    color: rgba(var(--color-text-base), 1);
+  }
+  .prose
+    :where(th, td):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    border-color: rgba(var(--color-border), 1);
+  }
+  .prose :where(img):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    border-color: rgba(var(--color-border), 1);
+  }
+  .prose :where(hr):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    border-color: rgba(var(--color-border), 1) !important;
   }
   .prose a {
-    @apply hover:text-skin-accent! break-words;
+    @apply break-words;
   }
   .prose thead th:first-child,
   tbody td:first-child,
@@ -71,10 +152,18 @@
     @apply mb-2;
   }
   .prose details {
-    @apply text-skin-base inline-block cursor-pointer select-none;
+    @apply inline-block cursor-pointer select-none;
+    color: rgba(var(--color-text-base), 1);
   }
   .prose summary {
-    @apply outline-skin-accent outline-2 outline-offset-1 focus-visible:no-underline focus-visible:outline-dashed;
+    outline-width: 2px;
+    outline-offset: 1px;
+    outline-color: rgba(var(--color-accent), 1);
+    outline-style: none;
+  }
+  .prose summary:focus-visible {
+    outline-style: dashed;
+    text-decoration-line: none;
   }
   .prose h2#table-of-contents + p {
     @apply hidden;
@@ -85,29 +174,26 @@
     overflow-y: scroll;
   }
 
-  /* width */
   ::-webkit-scrollbar {
     @apply w-3;
   }
 
-  /* Track */
   ::-webkit-scrollbar-track {
-    @apply bg-skin-fill;
+    background-color: rgba(var(--color-fill), 1);
   }
 
-  /* Handle */
   ::-webkit-scrollbar-thumb {
-    @apply bg-skin-card;
+    background-color: rgba(var(--color-card), 1);
   }
 
-  /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-skin-card-muted;
+    background-color: rgba(var(--color-card-muted), 1);
   }
 
   /* ===== Code Blocks & Syntax Highlighting ===== */
   pre:has(code) {
-    @apply border-skin-line border;
+    @apply border;
+    border-color: rgba(var(--color-border), 1);
   }
   code,
   blockquote {
@@ -118,7 +204,6 @@
     white-space: pre;
   }
 
-  /* Apply Dark Theme (if multi-theme specified) */
   html[data-theme="dark"] pre:has(code),
   html[data-theme="dark"] pre:has(code) span {
     color: var(--shiki-dark) !important;
@@ -127,10 +212,6 @@
     font-weight: var(--shiki-dark-font-weight) !important;
     text-decoration: var(--shiki-dark-text-decoration) !important;
   }
-}
-
-@utility focus-outline {
-  @apply outline-skin-accent outline-2 outline-offset-1 focus-visible:no-underline focus-visible:outline-dashed;
 }
 
 @layer components {

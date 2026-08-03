@@ -1,0 +1,125 @@
+@utility bg-skin-fill {
+  background-color: rgba(var(--color-fill), 1);
+}
+
+@utility bg-skin-accent {
+  background-color: rgba(var(--color-accent), 1);
+}
+
+@utility bg-skin-card {
+  background-color: rgba(var(--color-card), 1);
+}
+
+@utility bg-skin-card-muted {
+  background-color: rgba(var(--color-card-muted), 1);
+}
+
+@utility bg-skin-card-75 {
+  background-color: rgba(var(--color-card), 0.75);
+}
+
+@utility text-skin-base {
+  color: rgba(var(--color-text-base), 1);
+}
+
+@utility text-skin-accent {
+  color: rgba(var(--color-accent), 1);
+}
+
+@utility text-skin-inverted {
+  color: rgba(var(--color-fill), 1);
+}
+
+@utility text-skin-accent-85 {
+  color: rgba(var(--color-accent), 0.85);
+}
+
+@utility border-skin-line {
+  border-color: rgba(var(--color-border), 1);
+}
+
+@utility border-skin-fill-40 {
+  border-color: rgba(var(--color-fill), 0.4);
+}
+
+@utility border-skin-accent {
+  border-color: rgba(var(--color-accent), 1);
+}
+
+@utility border-l-skin-accent-50 {
+  border-left-color: rgba(var(--color-accent), 0.5);
+}
+
+@utility fill-skin-base {
+  fill: rgba(var(--color-text-base), 1);
+}
+
+@utility fill-skin-accent {
+  fill: rgba(var(--color-accent), 1);
+}
+
+@utility stroke-skin-accent {
+  stroke: rgba(var(--color-accent), 1);
+}
+
+@utility outline-skin-fill {
+  outline-color: rgba(var(--color-accent), 1);
+}
+
+@utility focus-outline {
+  outline-width: 2px;
+  outline-offset: 1px;
+  outline-color: rgba(var(--color-accent), 1);
+
+  &:focus-visible {
+    outline-style: dashed;
+    text-decoration-line: none;
+  }
+}
+
+@layer utilities {
+  .bg-skin-card\/75 {
+    background-color: rgba(var(--color-card), 0.75);
+  }
+  .text-skin-accent\/85 {
+    color: rgba(var(--color-accent), 0.85);
+  }
+  .border-skin-fill\/40 {
+    border-color: rgba(var(--color-fill), 0.4);
+  }
+  .border-l-skin-accent\/50 {
+    border-left-color: rgba(var(--color-accent), 0.5);
+  }
+  .\!stroke-skin-accent {
+    stroke: rgba(var(--color-accent), 1) !important;
+  }
+  .hover\:text-skin-accent:hover {
+    color: rgba(var(--color-accent), 1);
+  }
+  .hover\:text-skin-base:hover {
+    color: rgba(var(--color-text-base), 1);
+  }
+  .hover\:fill-skin-accent:hover {
+    fill: rgba(var(--color-accent), 1);
+  }
+  .group-hover\:fill-skin-accent:is(:where(.group):hover *) {
+    fill: rgba(var(--color-accent), 1);
+  }
+  .group-hover\:fill-skin-base:is(:where(.group):hover *) {
+    fill: rgba(var(--color-text-base), 1);
+  }
+  .group-hover\:\!fill-skin-base:is(:where(.group):hover *) {
+    fill: rgba(var(--color-text-base), 1) !important;
+  }
+  .focus\:border-skin-accent:focus {
+    border-color: rgba(var(--color-accent), 1);
+  }
+  .selection\:bg-skin-accent\/70 ::selection,
+  .selection\:bg-skin-accent\/70::selection {
+    background-color: rgba(var(--color-accent), 0.7);
+  }
+  .selection\:text-skin-inverted ::selection,
+  .selection\:text-skin-inverted::selection {
+    color: rgba(var(--color-fill), 1);
+  }
+}
