@@ -7,7 +7,7 @@ const getSortedPosts = (posts: CollectionEntry<"blog">[]) => {
     .filter(postFilter)
     .map(post => ({
       ...post,
-      slug: resolvedSlugPath(post.slug),
+      slug: resolvedSlugPath(post.id),
     }))
     .sort(
       (a, b) =>

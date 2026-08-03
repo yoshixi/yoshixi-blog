@@ -1,7 +1,7 @@
 ---
 import { LOCALE, SITE } from "@config";
 import "@styles/base.css";
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 
@@ -95,12 +95,24 @@ const structuredData = {
     }
 
     <!-- Twitter -->
-    <meta name="twitter:card" property="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:card"
+      property="twitter:card"
+      content="summary_large_image"
+    />
     <meta name="twitter:url" property="twitter:url" content={canonicalURL} />
     <meta name="twitter:title" property="twitter:title" content={title} />
-    <meta name="twitter:description" property="twitter:description" content={description} />
-    <meta name="twitter:image" property="twitter:image" content={socialImageURL} />
-    <meta name="twitter:site" content="@yoshixi_dev">
+    <meta
+      name="twitter:description"
+      property="twitter:description"
+      content={description}
+    />
+    <meta
+      name="twitter:image"
+      property="twitter:image"
+      content={socialImageURL}
+    />
+    <meta name="twitter:site" content="@yoshixi_dev" />
 
     <!-- Google JSON-LD Structured data -->
     <script
@@ -133,18 +145,23 @@ const structuredData = {
       )
     }
 
-    <ViewTransitions />
+    <ClientRouter />
 
     <script is:inline src="/toggle-theme.js" async></script>
 
     <!-- Google tag (gtag.js) -->
-    <script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-DFT3MRQ0NB"></script>
+    <script
+      type="text/partytown"
+      src="https://www.googletagmanager.com/gtag/js?id=G-DFT3MRQ0NB"></script>
     <script type="text/partytown">
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      function gtag() {
+        // eslint-disable-next-line prefer-rest-params -- gtag.js expects the Arguments object
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-      gtag('config', 'G-DFT3MRQ0NB');
+      gtag("config", "G-DFT3MRQ0NB");
     </script>
   </head>
   <body>

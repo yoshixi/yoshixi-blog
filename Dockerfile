@@ -1,5 +1,5 @@
 # Base stage for building the static files
-FROM node:lts AS base
+FROM node:22.16.0 AS base
 WORKDIR /app
 COPY package*.json ./
 RUN npm install

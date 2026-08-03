@@ -17,7 +17,6 @@ if (!SITE.showArchives) {
 const _posts = await getCollection("blog", ({ data }) => !data.draft);
 const posts = getSortedPosts(_posts);
 
-
 const MonthMap: Record<string, string> = {
   "1": "January",
   "2": "February",

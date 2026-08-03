@@ -8,7 +8,6 @@ tags:
 
 # How to Install Ubuntu on GMKTech Mini PC
 
-
 ## Create Ubuntu Bootable USB Stick on macOS
 
 Follow the doc [Create a bootable USB stick on macOS](https://ubuntu.com/tutorials/create-a-usb-stick-on-mac#1-overview) to create a bootable USB stick for Ubuntu.
@@ -28,14 +27,14 @@ In short, you need to:
 4. To change the boot order, look for the "Boot" tab and adjust the settings to prioritize USB booting. In my case, I can change the priority by pushing the `space` key that changes the priority of boot order.
 5. Go to the "Security" tab and disable "Secure Boot" to allow booting from the USB stick.
 6. Save your changes and exit the BIOS.
-7. After restarting, the GMKTech Mini PC shows some options that says 
-    - `Try or Install Ubuntu`
-    - `OEM Install (for manufacturers)`
-    - etc.
+7. After restarting, the GMKTech Mini PC shows some options that says
+   - `Try or Install Ubuntu`
+   - `OEM Install (for manufacturers)`
+   - etc.
 8. Select `Try or Install Ubuntu` to boot from the USB stick and start the Ubuntu installation process.
 
 If you want to configure automatic power on after power failure, you can do it in the BIOS settings as well. It seems the way to do it is different depending on devices.
-In my case, I went to the `Chipset` tab, then there are `Wake on Power` option, and I set it to `S0 State`  to enable automatic power on after power failure.
+In my case, I went to the `Chipset` tab, then there are `Wake on Power` option, and I set it to `S0 State` to enable automatic power on after power failure.
 In the latest GMKTech Mini PC, it seems the option is called `AC Power Lost Policy` in `Advanced` tab, and you can set it to `Power On` to enable automatic power on after power failure. (Youtube video: [How to Set Auto Power-On for GMKtec K10 Mini PC | BIOS Quick Guide!](https://www.youtube.com/watch?v=0XSId3RIwak))
 
 ## Install Ubuntu on GMKTech Mini PC
