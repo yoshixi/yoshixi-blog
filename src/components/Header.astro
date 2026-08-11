@@ -54,7 +54,7 @@ const { activeNav } = Astro.props;
             <line x1="6" y1="6" x2="18" y2="18" class="close"></line>
           </svg>
         </button>
-        <ul id="menu-items" class="display-none sm:flex">
+        <ul id="menu-items" class="display-none">
           <li>
             <a href="/posts/" class={activeNav === "posts" ? "active" : ""}>
               Posts
@@ -152,8 +152,9 @@ const { activeNav } = Astro.props;
 </header>
 
 <style>
+  @reference "../styles/base.css";
   #skip-to-content {
-    @apply absolute -top-full left-16 z-50 bg-skin-accent px-3 py-2 text-skin-inverted transition-all focus:top-4;
+    @apply bg-skin-accent text-skin-inverted absolute -top-full left-16 z-50 px-3 py-2 transition-all focus:top-4;
   }
   .nav-container {
     @apply mx-auto flex max-w-3xl flex-col items-center justify-between sm:flex-row;
@@ -168,27 +169,38 @@ const { activeNav } = Astro.props;
     @apply self-end p-2 sm:hidden;
   }
   .hamburger-menu svg {
-    @apply h-6 w-6 scale-125 fill-skin-base;
+    @apply fill-skin-base h-6 w-6 scale-125;
   }
 
   nav {
     @apply flex w-full flex-col items-center sm:ml-2 sm:flex-row sm:justify-end sm:space-x-4 sm:py-0;
   }
   nav ul {
-    @apply mt-4 grid w-44 grid-cols-2 grid-rows-4 gap-x-2 gap-y-2 sm:ml-0 sm:mt-0 sm:w-auto sm:gap-x-5 sm:gap-y-0;
+    @apply mt-4 grid w-44 grid-cols-2 grid-rows-4 gap-x-2 gap-y-2 sm:mt-0 sm:ml-0 sm:w-auto sm:gap-x-5 sm:gap-y-0;
+  }
+  #menu-items.display-none {
+    display: none;
+  }
+  @media (width >= 40rem) {
+    #menu-items,
+    #menu-items.display-none {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
   }
   nav ul li {
-    @apply col-span-2 flex items-center justify-center;
+    @apply col-span-2 flex items-center justify-center sm:col-auto;
   }
   nav ul li a {
-    @apply w-full px-4 py-3 text-center font-medium hover:text-skin-accent sm:my-0 sm:px-2 sm:py-1;
+    @apply hover:text-skin-accent w-full px-4 py-3 text-center font-medium sm:my-0 sm:px-2 sm:py-1;
   }
   nav ul li:nth-last-child(2) a {
     @apply w-auto;
   }
   nav ul li:nth-last-child(1),
   nav ul li:nth-last-child(2) {
-    @apply col-span-1;
+    @apply col-span-1 sm:col-auto;
   }
   nav .active {
     @apply underline decoration-wavy decoration-2 underline-offset-4;
@@ -201,7 +213,7 @@ const { activeNav } = Astro.props;
     @apply p-1;
   }
   nav button svg {
-    @apply h-6 w-6 fill-skin-base hover:fill-skin-accent;
+    @apply fill-skin-base hover:fill-skin-accent h-6 w-6;
   }
   #theme-btn {
     @apply p-3 sm:p-1;
