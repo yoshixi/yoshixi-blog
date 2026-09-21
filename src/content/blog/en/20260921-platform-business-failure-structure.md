@@ -12,8 +12,6 @@ tags:
 description: A structured view of why platform businesses fail when value and profit do not compound together.
 ---
 
-[Japanese version is here](/posts/ja-20260921-platform-business-failure-structure/)
-
 # The Structural Failure Patterns of Platform Businesses
 
 I want to think about what is required for a platform to work as a business.  
