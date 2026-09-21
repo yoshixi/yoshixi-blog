@@ -8,7 +8,6 @@ draft: false
 tags:
   - life
 description: ""
-hideFromTimeline: true
 ---
 
 こちらの記事は、[英語で書いたもの](/posts/reflections-on-2022/)をほぼ自動翻訳で翻訳したものになります．
