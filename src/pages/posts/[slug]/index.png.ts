@@ -5,7 +5,9 @@ import { generateOgImageForPost } from "@utils/generateOgImages";
 import { slugifyStr } from "@utils/slugify";
 
 export async function getStaticPaths() {
-  const posts = (await getPublishedBlogPosts()).filter(({ data }) => !data.ogImage);
+  const posts = (await getPublishedBlogPosts()).filter(
+    ({ data }) => !data.ogImage
+  );
 
   return posts.map(post => ({
     params: { slug: slugifyStr(post.data.title) },

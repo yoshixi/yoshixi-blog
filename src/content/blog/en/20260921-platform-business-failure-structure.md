@@ -37,8 +37,8 @@ A platform should become stronger with usage: data, transaction history, reputat
 In failed cases, each transaction is served almost from zero.  
 That is simple interest, not compounding, and it lacks repeatability.
 
-- More transactions, but no better matching quality  
-- More usage, but no reduction in operating load  
+- More transactions, but no better matching quality
+- More usage, but no reduction in operating load
 - More data, but no better decisions
 
 The true growth driver is a loop: users explore the platform more, usage frequency rises, that activity creates more transactions, and those transactions attract even more new users.  
@@ -53,8 +53,8 @@ Many teams rush into horizontal expansion and end up with features that are broa
 The essence of a platform is not just creating a marketplace.  
 It is converting tacit knowledge in field decisions and operations into reusable assets (structured workflows and software).
 
-- What factors are truly needed for decisions in the field?  
-- What are the real workflows, including both normal and exception paths?  
+- What factors are truly needed for decisions in the field?
+- What are the real workflows, including both normal and exception paths?
 - What regulations, business customs, and operational constraints exist?
 
 Without this depth, feature count may grow, but core use-case adoption will not.
@@ -66,9 +66,9 @@ Areas like accounting, CRM, and ecommerce carts — where problems are clear and
 
 What remains is often the opposite:
 
-- Hard-to-define, hard-to-standardize problems  
-- Domestic or niche fields that are hard to access  
-- Operations that require real-world touchpoints  
+- Hard-to-define, hard-to-standardize problems
+- Domestic or niche fields that are hard to access
+- Operations that require real-world touchpoints
 - Themes historically avoided because ROI was hard to prove
 
 These areas are difficult, but that difficulty itself creates barriers to entry, and solving them can generate large value.

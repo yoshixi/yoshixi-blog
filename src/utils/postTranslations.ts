@@ -103,7 +103,10 @@ export const findTranslatedPost = (
   return (
     posts.find(candidate => {
       if (candidate.id === post.id || candidate.data.draft) return false;
-      if (normalizeTranslationKey(candidate.data.translationKey) !== translationKey)
+      if (
+        normalizeTranslationKey(candidate.data.translationKey) !==
+        translationKey
+      )
         return false;
 
       const candidateLanguage = getPostLanguage(candidate);
