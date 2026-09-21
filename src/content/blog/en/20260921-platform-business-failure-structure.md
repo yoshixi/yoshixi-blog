@@ -1,6 +1,7 @@
 ---
 language: en
 title: The Structural Failure Patterns of Platform Businesses
+translationKey: platform-business-failure-structure
 author: "Yoshiki"
 pubDatetime: 2026-09-21T15:10:00Z
 featured: false

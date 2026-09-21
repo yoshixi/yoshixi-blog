@@ -9,6 +9,7 @@ import { render } from "astro:content";
 import { slugifyStr, resolvedSlugPath } from "@utils/slugify";
 import ShareLinks from "@components/ShareLinks.astro";
 import { SITE } from "@config";
+import { findTranslatedPost, getPostLanguage } from "@utils/postTranslations";
 
 export interface Props {
   post: CollectionEntry<"blog">;
@@ -62,6 +63,13 @@ const currentPostIndex = allPosts.findIndex(
 const prevPost = currentPostIndex !== 0 ? allPosts[currentPostIndex - 1] : null;
 const nextPost =
   currentPostIndex !== allPosts.length ? allPosts[currentPostIndex + 1] : null;
+
+const translatedPost = findTranslatedPost(posts, post);
+const postLanguage = getPostLanguage(post);
+const translationLinkLabel =
+  postLanguage === "ja"
+    ? "Read this article in English"
+    : "この記事を日本語で読む";
 ---
 
 <Layout {...layoutProps}>
@@ -91,6 +99,18 @@ const nextPost =
       editPost={editPost}
       postId={post.id}
     />
+    {
+      translatedPost && (
+        <div class="my-4">
+          <a
+            href={`/posts/${resolvedSlugPath(translatedPost.id)}/`}
+            class="inline-flex items-center text-sm text-skin-accent underline decoration-dashed underline-offset-4 hover:opacity-80"
+          >
+            {translationLinkLabel}
+          </a>
+        </div>
+      )
+    }
     <article id="article" class="prose mx-auto mt-8 max-w-3xl">
       <Content />
     </article>

@@ -1,5 +1,7 @@
 ---
 title: プラットフォーム事業の失敗の構造
+language: ja
+translationKey: platform-business-failure-structure
 pubDatetime: 2026-09-21T15:00:00Z
 author: "Yoshiki"
 featured: false
