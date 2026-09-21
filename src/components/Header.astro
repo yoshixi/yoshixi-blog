@@ -70,6 +70,27 @@ const { activeNav } = Astro.props;
               About
             </a>
           </li>
+          <li class="lang-switcher-item">
+            <div class="lang-switcher" aria-label="Language switcher">
+              <button
+                type="button"
+                class="lang-switch-btn"
+                data-set-site-language="ja"
+                aria-pressed="false"
+              >
+                JA
+              </button>
+              <span aria-hidden="true">/</span>
+              <button
+                type="button"
+                class="lang-switch-btn"
+                data-set-site-language="en"
+                aria-pressed="false"
+              >
+                EN
+              </button>
+            </div>
+          </li>
           {
             SITE.showArchives && (
               <li>
@@ -194,6 +215,18 @@ const { activeNav } = Astro.props;
   }
   nav ul li a {
     @apply hover:text-skin-accent w-full px-4 py-3 text-center font-medium sm:my-0 sm:px-2 sm:py-1;
+  }
+  nav ul li.lang-switcher-item {
+    @apply col-span-2 sm:col-auto;
+  }
+  .lang-switcher {
+    @apply flex items-center gap-1 text-sm;
+  }
+  .lang-switch-btn {
+    @apply hover:text-skin-accent rounded px-2 py-1 font-medium;
+  }
+  .lang-switch-btn[aria-pressed="true"] {
+    @apply text-skin-accent underline decoration-wavy decoration-2 underline-offset-4;
   }
   nav ul li:nth-last-child(2) a {
     @apply w-auto;

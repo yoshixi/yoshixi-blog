@@ -1,7 +1,8 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
+import { type CollectionEntry } from "astro:content";
 import PostDetails from "@layouts/PostDetails.astro";
 import getSortedPosts from "@utils/getSortedPosts";
+import { getAllBlogPosts, getPublishedBlogPosts } from "@utils/getBlogPosts";
 import { resolvedSlugPath } from "@utils/slugify";
 
 export interface Props {
@@ -9,7 +10,7 @@ export interface Props {
 }
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog", ({ data }) => !data.draft);
+  const posts = await getPublishedBlogPosts();
 
   const postResult = posts.map(post => ({
     params: { slug: resolvedSlugPath(post.id) },
@@ -21,7 +22,7 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 
-const posts = await getCollection("blog");
+const posts = await getAllBlogPosts();
 const sortedPosts = getSortedPosts(posts);
 ---
 

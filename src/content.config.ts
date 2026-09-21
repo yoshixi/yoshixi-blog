@@ -7,6 +7,8 @@ const blog = defineCollection({
   schema: ({ image }) =>
     z.object({
       author: z.string().default(SITE.author),
+      language: z.enum(["ja", "en"]).optional(),
+      translationKey: z.string().optional(),
       pubDatetime: z.date(),
       modDatetime: z.date().optional().nullable(),
       title: z.string(),

@@ -1,5 +1,4 @@
 ---
-import { getCollection } from "astro:content";
 import Card from "@components/Card";
 import Footer from "@components/Footer.astro";
 import Header from "@components/Header.astro";
@@ -8,13 +7,14 @@ import Layout from "@layouts/Layout.astro";
 import Main from "@layouts/Main.astro";
 import getPostsByGroupCondition from "@utils/getPostsByGroupCondition";
 import getSortedPosts from "@utils/getSortedPosts";
+import { getPublishedBlogPosts } from "@utils/getBlogPosts";
 
 // Redirect to 404 page if `showArchives` config is false
 if (!SITE.showArchives) {
   return Astro.redirect("/404");
 }
 
-const _posts = await getCollection("blog", ({ data }) => !data.draft);
+const _posts = await getPublishedBlogPosts();
 const posts = getSortedPosts(_posts);
 
 const MonthMap: Record<string, string> = {

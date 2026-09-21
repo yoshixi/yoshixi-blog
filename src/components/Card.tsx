@@ -9,7 +9,40 @@ export interface Props {
 }
 
 export default function Card({ href, frontmatter, secHeading = true }: Props) {
-  const { title, pubDatetime, modDatetime, description } = frontmatter;
+  const {
+    title,
+    pubDatetime,
+    modDatetime,
+    description,
+    language,
+    translationKey,
+  } = frontmatter;
+
+  const resolvedLanguage = (() => {
+    if (language === "ja" || language === "en") return language;
+    if (!href) return "";
+
+    const slug = href
+      .replace(/^\/posts\//, "")
+      .replace(/\/$/, "")
+      .split("/")[0];
+    const matched = slug.match(/^(ja|en)-/);
+    return matched?.[1] ?? "";
+  })();
+
+  const resolvedTranslationKey = (() => {
+    if (translationKey && translationKey.trim().length > 0) {
+      return translationKey.trim();
+    }
+    if (!href) return "";
+
+    const slug = href
+      .replace(/^\/posts\//, "")
+      .replace(/\/$/, "")
+      .split("/")[0];
+
+    return slug.replace(/^(ja|en)-/, "");
+  })();
 
   const headerProps = {
     style: { viewTransitionName: slugifyStr(title) },
@@ -17,7 +50,12 @@ export default function Card({ href, frontmatter, secHeading = true }: Props) {
   };
 
   return (
-    <li className="my-6">
+    <li
+      className="my-6"
+      data-post-card="true"
+      data-post-language={resolvedLanguage}
+      data-translation-key={resolvedTranslationKey}
+    >
       <a
         href={href}
         className="inline-block text-lg font-medium text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
