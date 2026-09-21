@@ -74,6 +74,10 @@ export default function SearchBar({ searchList }: Props) {
   }, [inputVal]);
 
   useEffect(() => {
+    window.dispatchEvent(new CustomEvent("site-language-refresh"));
+  }, [searchResults]);
+
+  useEffect(() => {
     // focus on text input when search bar is displayed
     if (inputRef.current) {
       inputRef.current.focus();

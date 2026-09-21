@@ -66,6 +66,14 @@ const nextPost =
 
 const translatedPost = findTranslatedPost(posts, post);
 const postLanguage = getPostLanguage(post);
+const translatedPostLanguage = translatedPost
+  ? getPostLanguage(translatedPost)
+  : null;
+const translatedPostHref = translatedPost
+  ? `/posts/${resolvedSlugPath(translatedPost.id)}/${
+      translatedPostLanguage ? `?lang=${translatedPostLanguage}` : ""
+    }`
+  : null;
 const translationLinkLabel =
   postLanguage === "ja"
     ? "Read this article in English"
@@ -103,8 +111,12 @@ const translationLinkLabel =
       translatedPost && (
         <div class="my-4">
           <a
-            href={`/posts/${resolvedSlugPath(translatedPost.id)}/`}
-            class="inline-flex items-center text-sm text-skin-accent underline decoration-dashed underline-offset-4 hover:opacity-80"
+            href={translatedPostHref ?? undefined}
+            data-translation-target-language={
+              translatedPostLanguage ?? undefined
+            }
+            data-skip-site-language="true"
+            class="text-skin-accent inline-flex items-center text-sm underline decoration-dashed underline-offset-4 hover:opacity-80"
           >
             {translationLinkLabel}
           </a>

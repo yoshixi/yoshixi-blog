@@ -13,10 +13,6 @@ import { SITE, SOCIALS } from "@config";
 const posts = await getAllBlogPosts();
 
 const sortedPosts = getSortedPosts(posts);
-console.log(
-  "slugs",
-  sortedPosts.map(({ slug }) => slug)
-);
 const featuredPosts = sortedPosts.filter(({ data }) => data.featured);
 const recentPosts = sortedPosts
   .filter(({ data }) => !data.featured)

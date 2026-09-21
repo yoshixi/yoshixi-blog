@@ -166,5 +166,189 @@ const structuredData = {
   </head>
   <body>
     <slot />
+    <script is:inline>
+      (() => {
+        if (window.__siteLanguageInitialized) return;
+        window.__siteLanguageInitialized = true;
+
+        const STORAGE_KEY = "site-language";
+        const QUERY_KEY = "lang";
+        const DEFAULT_LANGUAGE = "ja";
+        const SUPPORTED_LANGUAGES = new Set(["ja", "en"]);
+
+        const normalizeLanguage = language =>
+          SUPPORTED_LANGUAGES.has(language) ? language : null;
+
+        const ensureLanguageInUrl = (rawUrl, language) => {
+          const url = new URL(rawUrl, window.location.origin);
+          url.searchParams.set(QUERY_KEY, language);
+          return url.toString();
+        };
+
+        const applyLanguageToInternalLinks = language => {
+          const anchors = document.querySelectorAll("a[href]");
+          for (const anchor of anchors) {
+            if (
+              !(anchor instanceof HTMLAnchorElement) ||
+              anchor.dataset.skipSiteLanguage === "true"
+            ) {
+              continue;
+            }
+
+            const rawHref = anchor.getAttribute("href");
+            if (
+              !rawHref ||
+              rawHref.startsWith("#") ||
+              rawHref.startsWith("mailto:") ||
+              rawHref.startsWith("tel:")
+            ) {
+              continue;
+            }
+
+            const nextUrl = new URL(rawHref, window.location.origin);
+            const isInternal = nextUrl.origin === window.location.origin;
+            const hasFileExtension = /\.[a-z0-9]+$/i.test(nextUrl.pathname);
+            const postLanguageFromPath =
+              nextUrl.pathname.match(/^\/posts\/(ja|en)-/)?.[1];
+
+            if (!isInternal || hasFileExtension) continue;
+            if (
+              postLanguageFromPath &&
+              postLanguageFromPath !== language &&
+              !anchor.dataset.forceLanguage
+            ) {
+              continue;
+            }
+
+            nextUrl.searchParams.set(QUERY_KEY, language);
+            anchor.href = `${nextUrl.pathname}${nextUrl.search}${nextUrl.hash}`;
+          }
+        };
+
+        const updateLanguageSwitcherUI = language => {
+          const buttons = document.querySelectorAll("[data-set-site-language]");
+          for (const button of buttons) {
+            const buttonLanguage = button.getAttribute(
+              "data-set-site-language"
+            );
+            button.setAttribute(
+              "aria-pressed",
+              buttonLanguage === language ? "true" : "false"
+            );
+          }
+        };
+
+        const applyCardLanguageFilter = language => {
+          const cards = document.querySelectorAll("[data-post-card='true']");
+          if (!cards.length) return;
+
+          const shownKeys = new Set();
+
+          for (const card of cards) {
+            const cardLanguage = card.getAttribute("data-post-language") ?? "";
+            const cardTranslationKey =
+              card.getAttribute("data-translation-key") ??
+              `card-${Math.random().toString(16).slice(2)}`;
+
+            const isLanguageMatch =
+              cardLanguage.length === 0 || cardLanguage === language;
+            if (!isLanguageMatch || shownKeys.has(cardTranslationKey)) {
+              card.setAttribute("hidden", "hidden");
+              continue;
+            }
+
+            shownKeys.add(cardTranslationKey);
+            card.removeAttribute("hidden");
+          }
+        };
+
+        const setDocumentLanguage = language => {
+          document.documentElement.setAttribute("lang", language);
+          document.documentElement.dataset.siteLanguage = language;
+        };
+
+        const getLanguageFromCurrentUrl = () => {
+          const url = new URL(window.location.href);
+          return normalizeLanguage(url.searchParams.get(QUERY_KEY));
+        };
+
+        const getStoredLanguage = () =>
+          normalizeLanguage(localStorage.getItem(STORAGE_KEY));
+
+        const applyLanguage = (language, options = {}) => {
+          const { updateUrl = true } = options;
+
+          setDocumentLanguage(language);
+          localStorage.setItem(STORAGE_KEY, language);
+
+          updateLanguageSwitcherUI(language);
+          applyCardLanguageFilter(language);
+          applyLanguageToInternalLinks(language);
+
+          if (updateUrl) {
+            const currentUrl = ensureLanguageInUrl(
+              window.location.href,
+              language
+            );
+            window.history.replaceState(window.history.state, "", currentUrl);
+          }
+
+          window.dispatchEvent(
+            new CustomEvent("site-language-change", {
+              detail: { language },
+            })
+          );
+        };
+
+        const maybeNavigateToTranslatedPost = language => {
+          const selector = `[data-translation-target-language="${language}"]`;
+          const translationLink = document.querySelector(selector);
+          if (!(translationLink instanceof HTMLAnchorElement)) return false;
+
+          window.location.assign(
+            ensureLanguageInUrl(translationLink.href, language)
+          );
+          return true;
+        };
+
+        const initializeLanguage = ({ updateUrl }) => {
+          const activeLanguage =
+            getLanguageFromCurrentUrl() ??
+            getStoredLanguage() ??
+            DEFAULT_LANGUAGE;
+          applyLanguage(activeLanguage, { updateUrl });
+        };
+
+        document.addEventListener("click", event => {
+          const target = event.target;
+          if (!(target instanceof Element)) return;
+
+          const languageButton = target.closest("[data-set-site-language]");
+          if (!(languageButton instanceof HTMLElement)) return;
+
+          const nextLanguage = normalizeLanguage(
+            languageButton.getAttribute("data-set-site-language")
+          );
+          if (!nextLanguage) return;
+
+          event.preventDefault();
+          if (maybeNavigateToTranslatedPost(nextLanguage)) return;
+
+          applyLanguage(nextLanguage, { updateUrl: true });
+        });
+
+        window.addEventListener("site-language-refresh", () => {
+          const currentLanguage =
+            normalizeLanguage(document.documentElement.dataset.siteLanguage) ??
+            DEFAULT_LANGUAGE;
+          applyCardLanguageFilter(currentLanguage);
+        });
+
+        initializeLanguage({ updateUrl: !getLanguageFromCurrentUrl() });
+        document.addEventListener("astro:after-swap", () => {
+          initializeLanguage({ updateUrl: !getLanguageFromCurrentUrl() });
+        });
+      })();
+    </script>
   </body>
 </html>
