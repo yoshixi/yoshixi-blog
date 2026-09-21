@@ -77,6 +77,18 @@ export const assertBilingualPairs = (posts: CollectionEntry<"blog">[]) => {
         );
       }
     }
+
+    const jaPost = groupedPosts.ja[0];
+    const enPost = groupedPosts.en[0];
+    if (jaPost && enPost) {
+      const jaHideFromTimeline = Boolean(jaPost.data.hideFromTimeline);
+      const enHideFromTimeline = Boolean(enPost.data.hideFromTimeline);
+      if (jaHideFromTimeline !== enHideFromTimeline) {
+        errors.push(
+          `[pairingKey="${pairingKey}"] has inconsistent hideFromTimeline (ja=${jaHideFromTimeline}, en=${enHideFromTimeline}).`
+        );
+      }
+    }
   }
 
   if (errors.length > 0) {

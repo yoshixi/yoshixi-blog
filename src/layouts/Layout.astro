@@ -49,6 +49,7 @@ const structuredData = {
     },
   ],
 };
+const defaultSiteLanguage = LOCALE.lang === "ja" ? "ja" : "en";
 ---
 
 <!doctype html>
@@ -164,7 +165,7 @@ const structuredData = {
       gtag("config", "G-DFT3MRQ0NB");
     </script>
   </head>
-  <body>
+  <body data-default-site-language={defaultSiteLanguage}>
     <slot />
     <script is:inline>
       (() => {
@@ -173,7 +174,8 @@ const structuredData = {
 
         const STORAGE_KEY = "site-language";
         const QUERY_KEY = "lang";
-        const DEFAULT_LANGUAGE = "ja";
+        const DEFAULT_LANGUAGE =
+          document.body.dataset.defaultSiteLanguage === "ja" ? "ja" : "en";
         const SUPPORTED_LANGUAGES = new Set(["ja", "en"]);
 
         const normalizeLanguage = language =>
@@ -272,9 +274,6 @@ const structuredData = {
           return normalizeLanguage(url.searchParams.get(QUERY_KEY));
         };
 
-        const getStoredLanguage = () =>
-          normalizeLanguage(localStorage.getItem(STORAGE_KEY));
-
         const applyLanguage = (language, options = {}) => {
           const { updateUrl = true } = options;
 
@@ -313,9 +312,7 @@ const structuredData = {
 
         const initializeLanguage = ({ updateUrl }) => {
           const activeLanguage =
-            getLanguageFromCurrentUrl() ??
-            getStoredLanguage() ??
-            DEFAULT_LANGUAGE;
+            getLanguageFromCurrentUrl() ?? DEFAULT_LANGUAGE;
           applyLanguage(activeLanguage, { updateUrl });
         };
 
